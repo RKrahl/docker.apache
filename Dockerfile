@@ -1,8 +1,8 @@
-FROM rkrahl/opensuse
+FROM rkrahl/centos:7
 
-RUN zypper --non-interactive install \
-	apache2
+RUN yum -y install \
+    httpd
 
-CMD ["/usr/sbin/httpd-prefork",  "-f",  "/etc/apache2/httpd.conf", "-DSSL", "-DFOREGROUND", "-k", "start"]
+CMD ["/usr/sbin/httpd",  "-f",  "/etc/httpd/conf/httpd.conf", "-DSSL", "-DFOREGROUND", "-k", "start"]
 
 EXPOSE 80 443
