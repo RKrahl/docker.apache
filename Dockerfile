@@ -1,5 +1,7 @@
 FROM rkrahl/opensuse:15.4
 
+RUN zypper --non-interactive refresh
+
 RUN zypper --non-interactive install \
 	apache2 \
 	apache2-mod_wsgi-python3 \
